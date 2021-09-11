@@ -42,10 +42,12 @@ const App: React.FC = () => {
       setError('Please enter a valid (non-negative) input number');
       return;
     }
+    const ft = calcUnits === 'ftlbs'? 0.0328:1;
+    const lbs = calcUnits === 'ftlbs'?2.2:1;
+    const height = +enteredHeight / ft;
+    const weight = +enteredWeight / lbs;
     
-    const bmi = +enteredWeight / ((+enteredHeight/100) * (+enteredHeight/100));
-
-    
+    const bmi = +weight / ((+height/100) * (+height/100));
 
     if(bmi < 18.5 ){
       const result = "Kurus"
